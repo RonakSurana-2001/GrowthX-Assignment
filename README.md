@@ -15,7 +15,7 @@ Develop a backend system for an assignment submission portal.
 
 ## Tech Stack
 
-**Server:** Node JS, Express JS, Mongoose ORM  , Zod (for validation)
+**Server:** Node JS, Express JS, Mongoose ORM  , Zod (for validation)  
 **Database:** MongoDB
 
 
@@ -49,6 +49,8 @@ or if you do not want to restart server again and again after making any change 
 ```bash
   nodemon app.js
 ```
+The application will run at localhost:3000  
+To access API Docs : http://localhost:3000/docs
 
 ## Environment Variables
 
@@ -150,5 +152,6 @@ Only Admin can reject the assignment
 
 ## Authors
 
-[Ronak Surana](ronaksurana2017@gmail.com)
+Ronak Surana  
+Email ID - ronaksurana2017@gmail.com
 
