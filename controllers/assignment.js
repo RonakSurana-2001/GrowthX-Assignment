@@ -1,5 +1,4 @@
 const assignmentModel=require("../model/assignmentModel")
-const userModel = require("../model/userModel")
 const {VerifyEmailAndUserId}=require("../common/verifyemailanduserid")
 
 //Get Assignment in which admin is tagged
@@ -38,7 +37,7 @@ const acceptAssignment=async(req,res)=>{
         }
         const assignmentData=await assignmentModel.find({adminEmail})
         if(assignmentData){
-            await assignmentModel.findOneAndUpdate({assignmentId:id},{$set:{verdict:'accepted'}},{new:true})
+            await assignmentModel.findOneAndUpdate({assignmentId:id},{$set:{verdict:'accepted',updatedAt:new Date()}},{new:true})
             return res.status(200).send({
                 success:true,
                 msg:"Data Updated"
@@ -72,7 +71,7 @@ const rejectAssignment=async(req,res)=>{
         }
         const assignmentData=await assignmentModel.find({adminEmail})
         if(assignmentData){
-            await assignmentModel.findOneAndUpdate({assignmentId:id},{$set:{verdict:'not-accepted'}},{new:true})
+            await assignmentModel.findOneAndUpdate({assignmentId:id},{$set:{verdict:'not-accepted',updatedAt:new Date()}},{new:true})
             return res.status(200).send({
                 success:true,
                 msg:"Data Updated"

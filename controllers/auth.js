@@ -41,7 +41,8 @@ const userRegister = async (req, res) => {
         else {
             return res.status(400).send({
                 success: false,
-                message: "Enter Correct Credentials"
+                message: "Enter Correct Credentials",
+                error:validate.error.issues[0].message
             })
         }
     } catch (err) {
@@ -95,7 +96,8 @@ const userLogin = async (req, res) => {
         else {
             return res.status(400).send({
                 success: false,
-                message: "Enter Correct Credentials"
+                message: "Enter Correct Credentials",
+                error:validate.error.issues[0].message
             })
         }
     } catch (err) {
@@ -109,16 +111,23 @@ const userLogin = async (req, res) => {
 
 // Fetch all Admins
 const getAllAdmins=async(req,res)=>{
-    const admins=await userModel.find({admin:true})
-    const adminsData=admins.map((user)=>{
-        return {
-            username:user.username,
-            userEmail:user.userEmail
-        }
-    })
-    res.status(200).send({
-        adminsData
-    })
+    try{
+        const admins=await userModel.find({admin:true})
+        const adminsData=admins.map((user)=>{
+            return {
+                username:user.username,
+                userEmail:user.userEmail
+            }
+        })
+        return res.status(200).send({
+            adminsData
+        })
+    }catch(err){
+        return res.status(500).send({
+            success:false,
+            msg:"Some error encountered"
+        })
+    }
 }
 
 // Upload an Assignment
