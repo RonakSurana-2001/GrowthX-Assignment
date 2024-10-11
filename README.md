@@ -15,7 +15,7 @@ Develop a backend system for an assignment submission portal.
 
 ## Tech Stack
 
-**Server:** Node JS, Express JS, Mongoose ORM  
+**Server:** Node JS, Express JS, Mongoose ORM  , Zod (for validation)
 **Database:** MongoDB
 
 

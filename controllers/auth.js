@@ -33,7 +33,7 @@ const userRegister = async (req, res) => {
             const hashedPassword=await bcrypt.hash(password,10)
             const user=await userModel({userEmail,username,password:hashedPassword,admin:admin})
             await user.save()
-            return res.send({
+            return res.status(200).send({
                 success:true,
                 message:"User Registered Successfully"
             })
@@ -46,8 +46,7 @@ const userRegister = async (req, res) => {
             })
         }
     } catch (err) {
-        console.log(err)
-        res.status(500).send({
+        return res.status(500).send({
             success: false,
             message: "Some Error Occurred",
             err
@@ -73,21 +72,21 @@ const userLogin = async (req, res) => {
             const { userEmail, password } = req.body
             const existingUser = await userModel.findOne({ userEmail })
             if (!existingUser) {
-                return res.status(200).send({
+                return res.status(400).send({
                     success: false,
                     message: "User Not Registered"
                 })
             }
             const isMatch = await bcrypt.compare(password, existingUser.password)
             if(isMatch){        
-                return res.send({
+                return res.status(200).send({
                     success:true,
                     message:"User Login Successful",
                     existingUser
                 })
             }
             else{
-                return res.send({
+                return res.status(400).send({
                     success:false,
                     message:"Incorrect Email or Password"
                 })

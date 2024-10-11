@@ -18,7 +18,8 @@ const getAssignmentOfAdmin=async(req,res)=>{
         })
     }catch(err){
         return res.status(500).send({
-            success:false
+            success:false,
+            msg:"Some Error Occurred"
         })
     }
 }
@@ -26,9 +27,9 @@ const getAssignmentOfAdmin=async(req,res)=>{
 //Accept Assignment in which admin is tagged
 const acceptAssignment=async(req,res)=>{
     const id=req.params.id
-    const adminEmail=req.headers.useremail
+    const adminEmail=req.body.useremail
     try{
-        const verifyAdminExists=await VerifyEmailAndUserId(req.headers.userid,req.headers.useremail)
+        const verifyAdminExists=await VerifyEmailAndUserId(req.body.userid,req.body.useremail)
         if(!verifyAdminExists){
             return res.status(400).send({
                 success:false,
@@ -60,9 +61,9 @@ const acceptAssignment=async(req,res)=>{
 //Reject Assignment in which admin is tagged
 const rejectAssignment=async(req,res)=>{
     const id=req.params.id
-    const adminEmail=req.headers.useremail
+    const adminEmail=req.body.useremail
     try{
-        const verifyAdminExists=await VerifyEmailAndUserId(req.headers.userid,req.headers.useremail)
+        const verifyAdminExists=await VerifyEmailAndUserId(req.body.userid,req.body.useremail)
         if(!verifyAdminExists){
             return res.status(400).send({
                 success:false,
