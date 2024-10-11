@@ -25,7 +25,7 @@ const swaggerSpecs = {
                     },
                 }
             },
-            "Admin": {  // Define the structure for a single admin
+            "Admin": { 
                 "type": "object",
                 "properties": {
                     "username": {

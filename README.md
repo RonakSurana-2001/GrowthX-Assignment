@@ -56,7 +56,9 @@ To run this project, you will need to add the following environment variable to 
 
 `DB_URL`
 
+# Swagger Documentation
 
+<a href="https://growthx-assignment-oyx1.onrender.com/docs">Swagger Docs</a>
 
 ## API Reference
 
@@ -120,7 +122,7 @@ Only Admin can accept the assignment
   POST /assignments/:id/accept 
 ```
 
-| Headers | Type     | Description                       |
+| Body | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `userid`      | `string` | **Required**. User ID of Logged in user who is admin |
 | `useremail`      | `string` | **Required**. Email of Logged in user who is admin |
@@ -137,7 +139,7 @@ Only Admin can reject the assignment
   POST /assignments/:id/reject 
 ```
 
-| Headers | Type     | Description                       |
+| Body | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
 | `userid`      | `string` | **Required**. User ID of Logged in user who is admin |
 | `useremail`      | `string` | **Required**. Email of Logged in user who is admin |
