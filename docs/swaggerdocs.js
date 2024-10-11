@@ -7,6 +7,9 @@ const swaggerSpecs = {
     "servers": [
         {
             "url": "http://localhost:3000",
+        },
+        {
+            "url": "https://growthx-assignment-oyx1.onrender.com",
         }
     ],
     "components": {

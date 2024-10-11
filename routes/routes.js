@@ -4,6 +4,10 @@ const { userLogin, userRegister, getAllAdmins ,uploadAssignment} = require("../c
 const {getAssignmentOfAdmin,acceptAssignment,rejectAssignment}=require("../controllers/assignment")
 const {verifyAdmin}=require("../middleware/verifyAdmin")
 
+router.get("/",(req,res)=>{
+    res.send("GrowthX Assignment By Ronak Surana")
+})
+
 router.post("/register",userRegister)
 router.post("/login",userLogin)
 router.get("/admins",getAllAdmins)
