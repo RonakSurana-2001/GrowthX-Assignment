@@ -197,6 +197,65 @@ const swaggerSpecs = {
                     },
                 }
             },
+            "UploadAssignmentsListResponseSchema": {
+                "type": "object",
+                "properties": {
+                    "success": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "msg": {
+                        "type": "string",
+                    },
+                    "assignmentslist": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "_id": {
+                                    "type": "string",
+                                    "example": "6709106b8e3939317b7791da"
+                                },
+                                "userEmail": {
+                                    "type": "string",
+                                    "example": "ronaknonadmin@mail.com"
+                                },
+                                "task": {
+                                    "type": "string",
+                                    "example": "First Task of day"
+                                },
+                                "adminEmail": {
+                                    "type": "string",
+                                    "example": "ronaknadmin@mail.com"
+                                },
+                                "verdict": {
+                                    "type": "string",
+                                    "enum": ["pending", "accepted", "not-accepted"],
+                                    "example": "not-accepted"
+                                },
+                                "assignmentId": {
+                                    "type": "string",
+                                    "example": "e7ce2d83-1e9f-4f23-8eac-0cb8a0deec16"
+                                },
+                                "createdAt": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "example": "2024-10-11T11:47:56.001Z"
+                                },
+                                "updatedAt": {
+                                    "type": "string",
+                                    "format": "date-time",
+                                    "example": "2024-10-11T13:05:47.153Z"
+                                },
+                                "__v": {
+                                    "type": "integer",
+                                    "example": 0
+                                }
+                            }
+                        }
+                    }
+                }
+            },
         },
     },
     "paths": {
@@ -328,7 +387,7 @@ const swaggerSpecs = {
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/SuccessResponseWithMessage"
+                                    "$ref": "#/components/schemas/UploadAssignmentsListResponseSchema"
                                 }
                             }
                         }

@@ -160,7 +160,8 @@ const uploadAssignment=async(req,res)=>{
             await assignmentM.save()
             return res.status(200).send({
                 success:true,
-                msg:"Successfully uploaded assignment"
+                msg:"Successfully uploaded assignment",
+                assignmentM
             })
         }
         else {
